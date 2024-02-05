@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { NavLink, Outlet, useLoaderData } from 'react-router-dom'
+import { NavLink, Outlet, useLoaderData, useNavigate } from 'react-router-dom'
 import {fetchData} from '../redux/userSlice'
 import logo from '../villa/logo.jpg'
 import Cookies from 'universal-cookie';
@@ -20,6 +20,7 @@ export  const RouteLyout = React.memo(()=> {
   const {userData} = useSelector(state => state.user)
   const locToken = localStorage.getItem("token")
   const curentU = useLoaderData()
+  const navigate = useNavigate()
 
 
   if(curentU) dispatch(signInSuccess(curentU))
@@ -37,7 +38,8 @@ export  const RouteLyout = React.memo(()=> {
 
   const logOut = ()=>{
     localStorage.removeItem('token')
-    window.location.reload()
+    // window.location.reload()
+    navigate('/')
   }
 
 

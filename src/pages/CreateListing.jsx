@@ -67,8 +67,9 @@ export default function CreateListing() {
       formData.append('uid',userData.uid)
 
       console.log('creat listing::::::::',userData)
-
-        const res = await axios.post('http://192.168.0.173:5000/cust/auth/add',formData,{
+      
+        const res = await axios.post('https://serrstate.onrender.com/cust/auth/add',formData,{
+          // const res = await axios.post('http://192.168.0.173:5000/cust/auth/add',formData,{
           headers: {
               Authorization: `Bearer ${localStorage.getItem('token')}`,  
               'Content-Type': 'multipart/form-data',

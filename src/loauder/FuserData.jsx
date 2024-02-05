@@ -14,9 +14,10 @@ export const FuserData =async  ()=>{
     try {
         const {cookieToken,userData:curentU} = cookies.get('useANDtoken') || {}
         const locToken = localStorage.getItem('token') || null
-
+        
         if(locToken){
-            const  res = await axios.post("http://192.168.0.173:5000/user", { token:locToken })
+            const  res = await axios.post("https://serrstate.onrender.com/user", { token:locToken })
+            // const  res = await axios.post("http://192.168.0.173:5000/user", { token:locToken })
             const curentU = res.data.user
 
             if(curentU === undefined) return null

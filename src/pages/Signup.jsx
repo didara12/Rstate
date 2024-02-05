@@ -24,14 +24,15 @@ export default function Signup() {
     password:""
   }
 
-
+  
   const formik = useFormik({
     initialValues,
     validationSchema,
     onSubmit: async(val,e)=>{
       try{
         setLoad(true)
-        const res = await axios.post('http://localhost:5000/general/signUp',val)
+        const res = await axios.post('https://serrstate.onrender.com/general/signUp',val)
+        // const res = await axios.post('http://localhost:5000/general/signUp',val)
         setLoad(false)
       }catch(e){
         setLoad(false)

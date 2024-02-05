@@ -10,8 +10,8 @@ import Oauth from '../components/Oauth'
 
 export default function SignIn() {
 
-  const [Serror, setSerror] = useState("")
   const [load , setLoad] = useState(false)
+  const [e, setE] = useState(null)
   const navigate = useNavigate();
   const dispatch = useDispatch()
 
@@ -36,7 +36,8 @@ export default function SignIn() {
     onSubmit: async(val,e)=>{
       try{
         setLoad(true)
-        const res = await axios.post('http://192.168.0.173:5000/general/signIn',val)
+        const res = await axios.post('https://serrstate.onrender.com/general/signIn',val)
+        // const res = await axios.post('http://192.168.0.173:5000/general/signIn',val)
         setLoad(false)
 
         localStorage.setItem('token',res.data.token)
@@ -47,9 +48,9 @@ export default function SignIn() {
         
       }catch(e){
         setLoad(false)
+        setE(e.response.data.error)
         console.log('sign in::::',e.message)
         console.log(e.response.data.error)
-        setSerror(e.response.data.error)
       }
 
     }
@@ -85,6 +86,9 @@ export default function SignIn() {
         
       </form>
       <Oauth/>
+      <div className='text-danger'>
+        {e? e:null}
+      </div>
     </div>
     </>
   )

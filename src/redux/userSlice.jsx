@@ -13,7 +13,8 @@ const initialState = {
 
 export const fetchData = createAsyncThunk('user/fetchData', async () => {
     try {
-      const response = await axios.get('http://localhost:5000/home');
+      const response = await axios.get('https://serrstate.onrender.com/home');
+      // const response = await axios.get('http://localhost:5000/home');
       return response.data.data;
     } catch (error) {
       throw error;
@@ -34,6 +35,11 @@ export const userSlice = createSlice({
         },
       addData: (state,action)=>{
         state.data.push(action.payload)
+      },
+      deleteData: (state,action)=>{
+        const _id = action.payload;
+        state.data = state.data.filter((element) => element._id !== _id);
+        console.log('userslice:::::::', state.data)
       }
     },
     extraReducers: (builder) => {
@@ -54,5 +60,5 @@ export const userSlice = createSlice({
       },
 })
 
-export const {signInSuccess,addData} = userSlice.actions
+export const {signInSuccess,addData,deleteData} = userSlice.actions
 export default userSlice.reducer
