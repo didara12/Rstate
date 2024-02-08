@@ -35,7 +35,8 @@ export default function Oauth() {
   return (
     <>
 
-        <a className="btn btn-primary mb-3 py-2 btn-danger "  style={{width:'100%'}}  href="http://192.168.0.173:5000/general/auth/google" >Sign in with google</a>
+        {/* <a className="btn btn-primary mb-3 py-2 btn-danger "  style={{width:'100%'}}  href="http://192.168.0.173:5000/general/auth/google" >Sign in with google</a> */}
+        <a className="btn btn-primary mb-3 py-2 btn-danger "  style={{width:'100%'}}  href="https://serrstate.onrender.com/general/auth/google" >Sign in with google</a>
         <div className='text-start my-2 ps-0'>Don't have an account?  <NavLink to='/signUp'>Sign up</NavLink> </div>
 
     </>

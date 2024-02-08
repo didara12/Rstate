@@ -1,13 +1,15 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import {  faTrash } from '@fortawesome/free-solid-svg-icons';
+import {  faInfo, faTrash } from '@fortawesome/free-solid-svg-icons';
 import axios from 'axios';
 import { deleteData } from '../redux/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function ListUser() {
     const {userData,data} = useSelector(state => state.user)
+    const navigate = useNavigate()
     const dispatch = useDispatch()
     let udata = null;
     console.log('lstUser:::::::::::userData',userData)
@@ -33,6 +35,9 @@ export default function ListUser() {
     }
 
 
+    const info = (_id)=>{
+        navigate(`/Rapp/${_id}`)
+    }
 
   return (
     <div>
@@ -44,7 +49,8 @@ export default function ListUser() {
                             <div class="fw-bold">{item.name} </div>
                             <p className='text-truncate text-danger-emphasis '>{item.description} </p>
                         </div>
-                        <button onClick={()=>handleClick(item._id)} className='btn' data-bs-toggle="tooltip" data-bs-placement="top" data-bs-custom-class="custom-tooltip" data-bs-title="This top tooltip is themed via CSS variables."><FontAwesomeIcon icon={faTrash} /></button>
+                            <button onClick={()=>handleClick(item._id)} className='btn' ><FontAwesomeIcon icon={faTrash} /></button>
+                            <button onClick={()=>info(item._id)} className='btn' ><FontAwesomeIcon icon={faInfo} /></button>
                     </li>)
                 
                 ) : null}

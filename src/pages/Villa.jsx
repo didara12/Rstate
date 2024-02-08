@@ -32,7 +32,14 @@ export default function Villa() {
     <div>
         
 
+        
+        {
+        vil.images[0] ?  <img src={vil.images[0]} className="d-block w-100" width="800" height="400" alt="photo"/>: 
+        
         <img src={logo} className="d-block w-100" width="800" height="400" alt="photo"/>
+        
+        }
+
 
         <div className="container w-75">
 

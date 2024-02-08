@@ -13,8 +13,8 @@ const initialState = {
 
 export const fetchData = createAsyncThunk('user/fetchData', async () => {
     try {
-      const response = await axios.get('https://serrstate.onrender.com/home');
-      // const response = await axios.get('http://localhost:5000/home');
+      // const response = await axios.get('https://serrstate.onrender.com/home');
+      const response = await axios.get('http://localhost:5000/home');
       return response.data.data;
     } catch (error) {
       throw error;

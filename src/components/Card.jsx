@@ -20,7 +20,7 @@ export default function Card({item}) {
     
     <div className="card  m-3 " style={{width: "18rem" }}>
       <NavLink to={`/Rapp/${item._id}`} style={linkStyle} onClick={handleClick}>
-    {item.images === null ? 
+    {!item.images[0] ? 
       <img src={logo} className="card-img-top" alt="test" height={"200px"}/> :
       
       // item.images.map((m, index) =>( <img key={index} src={m} className="card-img-top" alt="test" height={"200px"}/>))

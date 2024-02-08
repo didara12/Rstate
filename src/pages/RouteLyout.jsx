@@ -72,10 +72,10 @@ export  const RouteLyout = React.memo(()=> {
                       </a>
                       <ul class="dropdown-menu dropdown-menu-end "  aria-labelledby="navbarDropdownMenuLink">
                         <li><span class="dropdown-item  text-secondary  disabled "  >{userData.email} </span></li>
-                        <li><a class="dropdown-item "><FontAwesomeIcon icon={faUser} /> <span className='ms-2'> Profile </span></a></li>
-                        <li><a class="dropdown-item" ><FontAwesomeIcon icon={faGear} /> <span className='ms-2'> <NavLink to={'create-listing'} className="nav-link d-inline p-0">Listing</NavLink> </span></a></li>
+                        <li><a class="btn dropdown-item "><FontAwesomeIcon icon={faUser} /> <span className='ms-2'> Profile </span></a></li>
+                        <li><a class="btn dropdown-item" ><FontAwesomeIcon icon={faGear} /> <span className='ms-2'> <NavLink to={'create-listing'} className="nav-link d-inline p-0">Listing</NavLink> </span></a></li>
                         <li><hr class="dropdown-divider"/></li>
-                        <li><a class="dropdown-item"  onClick={logOut}><FontAwesomeIcon icon={faArrowRightFromBracket} /> <span className='ms-2'> Logout </span></a></li>
+                        <li><a class="btn dropdown-item"  onClick={logOut}><FontAwesomeIcon icon={faArrowRightFromBracket} /> <span className='ms-2'> Logout </span></a></li>
                       </ul>
                     </div>
 
